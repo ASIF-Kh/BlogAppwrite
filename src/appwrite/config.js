@@ -103,7 +103,7 @@ export class Servive{
                 queries)
             }catch(error){
                 console.log('Appwrite servive :: getPosts :: error', error);
-                return []
+                return false
             }
     };
     
@@ -112,7 +112,7 @@ export class Servive{
     async uploadFile(file){
         try {
 
-            this.bucket.createFile(
+            return await this.bucket.createFile(
                 appwriteBucketId,
                 ID.unique(),
                 file,
